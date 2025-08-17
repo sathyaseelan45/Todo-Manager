@@ -1,0 +1,137 @@
+<div class="container mt-5">
+  <div>
+    <form class="row g-2 align-items-end" action="" (ngSubmit)="addtask()">
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          name="tasks"
+          [(ngModel)]="title"
+          placeholder="Enter the task"
+        />
+      </div>
+      <div class="col-md-3">
+        <input
+          type="date"
+          class="form-control"
+          name="tasks"
+          [(ngModel)]="duedate"
+          placeholder="Enter the date"
+        />
+      </div>
+      <div class="col-md-3">
+        <select name="priority" class="form-select" [(ngModel)]="priority">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary rounded w-100">Add</button>
+      </div>
+    </form>
+    <div class="btn-group py-2">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [class.active]="todoservice.getfilter() === 'All'"
+        (click)="todoservice.setfilter('All')"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [class.active]="todoservice.getfilter() === 'Active'"
+        (click)="todoservice.setfilter('Active')"
+      >
+        Active
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        [class.active]="todoservice.getfilter() === 'Completed'"
+        (click)="todoservice.setfilter('Completed')"
+      >
+        Completed
+      </button>
+    </div>
+    <ul class="list-group" cdkDropList (cdkDropListDropped)="drop($event)">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let task of todoservice.filtertasks(); let i = index" cdkDrag
+      >
+        <div class="d-flex align-items-center">
+          <input
+            type="checkbox"
+            class="form-check-input me-2"
+            [checked]="task.done"
+            (change)="todoservice.toggledone(task)"
+          />
+          <input
+            type="text"
+            *ngIf="editingindex === task.id"
+            class="form-control form-control-sm me-2"
+            [(ngModel)]="editingtitle"
+            (blur)="saveedit(task)"
+            (keyup.enter)="saveedit(task)"
+            (keyup.escape)="canceledit()"
+            autofocus
+          />
+          <span
+            *ngIf="editingindex !== task.id"
+            class="task-title me-2"
+            (dblclick)="startedit(task)"
+            [ngClass]="{
+              'text-decoration-line-through text-muted me-2': task.done
+            }"
+          >
+            <span class="edit-icon">✏️</span>
+            {{ task.title }}
+            <small class="text-muted me-2">{{ task.duedate|date }}</small>
+            <span
+              class="badge rounded-pill fw-semibold"
+              [ngClass]="{
+                'bg-danger text-white': task.priority === 'High',
+                'bg-warning text-dark': task.priority === 'Medium',
+                'bg-success text-white': task.priority === 'Low'
+              }"
+            >
+              {{
+                task.priority === "High"
+                  ? "🔥 High"
+                  : task.priority === "Medium"
+                  ? "⚡ Medium"
+                  : "🌿 Low"
+              }}
+            </span>
+          </span>
+        </div>
+        <div>
+          <button
+            class="btn btn-sm btn-outline-secondary me-1"
+            (click)="startedit(task)"
+          >
+            ✏️
+          </button>
+          <button
+            type="submit"
+            class="btn btn-sm btn-outline-danger me-1"
+            (click)="todoservice.deletetask(task.id!)"
+          >
+            ❌
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div class="text-end mt-3">
+      <button
+        class="btn btn-secondary rounded mt-2"
+        type="submit"
+        (click)="todoservice.clearall()"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+</div>

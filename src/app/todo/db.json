@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "New Task",
+      "done": false,
+      "duedate": "2025-08-20",
+      "priority": "High"
+    }
+  ]
+}
