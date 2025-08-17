@@ -1,59 +1,102 @@
-# Todoapi
+# Todo Manager
 
+A simple yet powerful Angular Todo Manager built with Standalone Components, Angular Signals, Reactive Forms, and HttpClient.
+Tasks are stored in a JSON API (json-server) with localStorage persistence for fallback.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
-## Development server
+# Features
 
-To start a local development server, run:
+✅ Add, Edit, Delete tasks
+✅ Set Due Date & Priority (High, Medium, Low)
+✅ Mark tasks as Completed / Active
+✅ Filter by All / Active / Completed
+✅ Drag & Drop Reorder (Angular CDK)
+✅ Double-click Edit + Save/Cancel
+✅ Clear all tasks in one click
+✅ Uses json-server API (http://localhost:3000/tasks)
+✅ Data also cached in localStorage
+✅ Responsive UI with Bootstrap 5
+
+# Technologies Used
+
+Angular 17+ (Standalone Components + Signals)
+
+TypeScript
+
+Angular CDK (DragDrop)
+
+Bootstrap 5
+
+JSON Server (Fake REST API)
+
+LocalStorage
+
+# Project Structure
+
+```bash
+src/
+ ├─ app/
+ │  ├─ todo/                       # Standalone Todo UI
+ │  │   ├─ todo.component.ts
+ │  │   ├─ todo.component.html
+ │  │   └─ todo.component.css
+ │  ├─ services/
+ │  │   └─ todoapi.service.ts      # HttpClient + Signals + localStorage
+ │  ├─ app.component.ts
+ │  └─ app.component.html
+ ├─ assets/
+ ├─ index.html
+ └─ main.ts
+```
+
+# Setup & Installation
+
+Clone Repo
+
+```bash
+git clone https://github.com/<your-username>/todo-manager.git
+cd todo-manager
+```
+Install Dependencies
+
+```bash
+npm install
+```
+Start JSON Server (Fake API)
+
+Create a file db.json in root:
+```bash
+{
+  "tasks": []
+}
+```
+Run server:
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+API available at 👉 http://localhost:3000/tasks
+
+Run Angular App
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open in browser: 👉 http://localhost:4200/
 
-## Code scaffolding
+# Live Demo Link
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+https://todolist-45.web.app
 
-```bash
-ng generate component component-name
-```
+# Notes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Double-click on a task to edit inline.
 
-```bash
-ng generate --help
-```
+Tasks can be reordered by drag & drop.
 
-## Building
+Priority badges: 🔥 High | ⚡ Medium | 🌿 Low.
 
-To build the project run:
+API operations (add, update, delete, clear) are synced with json-server.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+LocalStorage keeps a backup of your tasks.
