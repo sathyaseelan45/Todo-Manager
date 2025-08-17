@@ -6,20 +6,29 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 # Features
 
-✅ Add, Edit, Delete tasks
-✅ Set Due Date & Priority (High, Medium, Low)
-✅ Mark tasks as Completed / Active
-✅ Filter by All / Active / Completed
-✅ Drag & Drop Reorder (Angular CDK)
-✅ Double-click Edit + Save/Cancel
-✅ Clear all tasks in one click
-✅ Uses json-server API (http://localhost:3000/tasks)
-✅ Data also cached in localStorage
-✅ Responsive UI with Bootstrap 5
+ Add, Edit, Delete tasks
+ 
+ Set Due Date & Priority (High, Medium, Low)
+ 
+ Mark tasks as Completed / Active
+ 
+ Filter by All / Active / Completed
+ 
+ Drag & Drop Reorder (Angular CDK)
+ 
+ Double-click Edit + Save/Cancel
+ 
+ Clear all tasks in one click
+ 
+ Uses json-server API (http://localhost:3000/tasks)
+ 
+ Data also cached in localStorage
+ 
+ Responsive UI with Bootstrap 5
 
 # Technologies Used
 
-Angular 17+ (Standalone Components + Signals)
+Angular 19+ (Standalone Components + Signals)
 
 TypeScript
 
@@ -54,7 +63,7 @@ src/
 Clone Repo
 
 ```bash
-git clone https://github.com/<your-username>/todo-manager.git
+git clone https://github.com/sathyaseelan45/Todo-Manager.git
 cd todo-manager
 ```
 Install Dependencies
