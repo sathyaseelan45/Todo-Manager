@@ -4,7 +4,7 @@ A simple yet powerful Angular Todo Manager built with Standalone Components, Ang
 Tasks are stored in a JSON API (json-server) with localStorage persistence for fallback.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
 
-# Features
+## Features
 
  Add, Edit, Delete tasks
  
@@ -26,7 +26,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
  
  Responsive UI with Bootstrap 5
 
-# Technologies Used
+## Technologies Used
 
 Angular 19+ (Standalone Components + Signals)
 
@@ -40,7 +40,7 @@ JSON Server (Fake REST API)
 
 LocalStorage
 
-# Project Structure
+## Project Structure
 
 ```bash
 src/
@@ -58,7 +58,7 @@ src/
  └─ main.ts
 ```
 
-# Setup & Installation
+## Setup & Installation
 
 Clone Repo
 
@@ -94,11 +94,11 @@ ng serve
 
 Open in browser: 👉 http://localhost:4200/
 
-# Live Demo Link
+## Live Demo Link
 
 https://todolist-45.web.app
 
-# Notes
+## Notes
 
 Double-click on a task to edit inline.
 
